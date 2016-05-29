@@ -1,3 +1,188 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+html, body { background: #FFEBEE;
+height: 100%; }
+form {
+    display: inline-block;
+}
+.form-group {
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.list {
+  position: absolute;
+  width: 360px;
+  top: 50%;
+  left: 50%;
+  margin: -122px 0 100px -180px;
+  -webkit-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.label {
+  display: inline-block;
+}
+
+.list h1 {
+  position: relative;
+  background: #F44336;
+  color: #fff;
+  margin: 0;
+  padding: 10px 20px;
+  font-family: "Roboto";
+  font-size: 18px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.list h1 a {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 0;
+  color: #fff;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: 0.3s linear;
+  -moz-transition: 0.3s linear;
+  -ms-transition: 0.3s linear;
+  -o-transition: 0.3s linear;
+  transition: 0.3s linear;
+}
+
+.list h1 a:hover { background: rgba(255, 255, 255, 0.2); }
+
+.list ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.list ul li {
+  background: #fff;
+  height: 40px;
+  color: #666;
+  line-height: 40px;
+  padding: 0 20px 0 0;
+}
+
+.list ul li a {
+  display: inline-block;
+  background: #F44336;
+  width: 0px;
+  height: 40px;
+  margin-right: 16px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  opacity: 0;
+  -webkit-transition: 0.2s linear;
+  -moz-transition: 0.2s linear;
+  -ms-transition: 0.2s linear;
+  -o-transition: 0.2s linear;
+  transition: 0.2s linear;
+}
+
+.list ul li:nth-child(2n) { background: #f7f7f7; }
+
+.list ul li:hover a {
+  width: 40px;
+  opacity: 1;
+}
+
+
+.modal-content {
+    -webkit-border-radius: 0;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 0;
+    -moz-background-clip: padding;
+    border-radius: 6px;
+    background-clip: padding-box;
+    -webkit-box-shadow: 0 0 40px rgba(0,0,0,.5);
+    -moz-box-shadow: 0 0 40px rgba(0,0,0,.5);
+    box-shadow: 0 0 40px rgba(0,0,0,.5);
+    color: #000;
+    background-color: #fff;
+    border: rgba(0,0,0,0);
+}
+.modal-message .modal-dialog {
+    width: 300px;
+}
+.modal-message .modal-body, .modal-message .modal-footer, .modal-message .modal-header, .modal-message .modal-title {
+    background: 0 0;
+    border: none;
+    margin: 0;
+    padding: 0 20px;
+    text-align: center!important;
+}
+
+.modal-message .modal-title {
+    font-size: 17px;
+    color: #737373;
+    margin-bottom: 3px;
+}
+
+.modal-message .modal-body {
+    color: #737373;
+}
+
+.btn-primary {
+  background-color: #F44336;
+}
+
+.modal-message .modal-header {
+    color: #F44336;
+    margin-bottom: 10px;
+    padding: 15px 0 8px;
+}
+.modal-message .modal-header .fa,
+.modal-message .modal-header
+.glyphicon, .modal-message
+.modal-header .typcn, .modal-message .modal-header .wi {
+    font-size: 30px;
+}
+
+.modal-message .modal-footer {
+    margin: 25px 0 20px;
+    padding-bottom: 10px;
+}
+
+.modal-backdrop.in {
+    zoom: 1;
+    filter: alpha(opacity=75);
+    -webkit-opacity: .75;
+    -moz-opacity: .75;
+    opacity: .75;
+}
+.modal-backdrop {
+    background-color: #fff;
+}
+.modal-message.modal-success .modal-header {
+    color: #F44336;
+    border-bottom: 3px solid #F44336;
+}
+
+.modal-message.modal-info .modal-header {
+    color: #57b5e3;
+    border-bottom: 3px solid #57b5e3;
+}
+
+.modal-message.modal-danger .modal-header {
+    color: #d73d32;
+    border-bottom: 3px solid #e46f61;
+}
+
+.modal-message.modal-warning .modal-header {
+    color: #f4b400;
+    border-bottom: 3px solid #ffce55;
+}

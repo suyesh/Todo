@@ -1,0 +1,18 @@
+<ul>
+  <% @todos.each do |todo| %>
+    <li> <%= link_to todo_path(todo), method: :delete, remote: true do %>
+         <div class="fa fa-check"></div>
+       </a><%= todo.description %>
+       <div class="pull-right">
+       <% if todo.priority == "High" %>
+          <span class="label label-danger"><i class="glyphicon glyphicon-record"></i></span>
+          <%elsif todo.priority == "Medium"%>
+          <span class="label label-primary"><i class="glyphicon glyphicon-record"></i></span>
+        <%else%>
+         <span class="label label-warning"><i class="glyphicon glyphicon-record"></i></span>
+         <%end%>
+       </div>
+       <%end%>
+     </li>
+  <% end %>
+</ul>
