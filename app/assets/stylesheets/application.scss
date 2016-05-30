@@ -2,11 +2,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+
 body {
-	background:url('https://s3.amazonaws.com/cdn.shared/todo/sticky-note-bg.jpg') no-repeat center center;
+	background:url('https://s3.amazonaws.com/cdn.shared/todo/sticky-note-bg.jpg') fixed;
 	min-height:100%;
 	background-size:cover;
-
 }
 
 .logo {
