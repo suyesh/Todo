@@ -1,4 +1,5 @@
 class TodosController < ApplicationController
+  before_action :authenticate_user!
   def index
     @todos = current_or_guest_user.todos.all
     @todo = current_or_guest_user.todos.new
@@ -62,5 +63,9 @@ class TodosController < ApplicationController
   private
   def todo_params
     params.require(:todo).permit(:description, :priority)
+  end
+
+  def authenticate_user!
+    @user = current_or_guest_user
   end
 end
