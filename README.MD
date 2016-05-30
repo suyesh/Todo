@@ -1,7 +1,7 @@
 # TODO
-A Rails Application for To-Do Lists  
+A Cool Rails Application for To-Do Lists  
 
-Built with Rails.
+#Built with Rails using following Gems
 
 1. Devise for handling the browser sessions for users.
 (There is no need for Signup/Signin/Login/Logout).
