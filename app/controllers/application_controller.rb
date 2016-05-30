@@ -41,7 +41,7 @@ class ApplicationController < ActionController::Base
   end
 
   def create_guest_user
-    password = SecureRandom.Hex(10)
+    password = SecureRandom.hex(6)
     u = User.create(:email => "guest_#{Time.now.to_i}#{rand(100)}@example.com", :password => password, :password_confirmation => password)
     u.save!(:validate => false)
     session[:guest_user_id] = u.id
