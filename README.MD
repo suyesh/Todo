@@ -10,7 +10,7 @@ Built with:
 
 ## Features
 
-1. No signups necessary
+1. No signups/Signins necessary. User's tasks will be annonymously saved until user clears browser history.
 2. Cool UI but could be cooler
 3. Task saved in cloud. Even though there is no signups or signins, Your tasks are yours.
 4. Mark tasks as complete. Tasks will be deleted from Database as its completed
@@ -21,6 +21,6 @@ Built with:
 
 ## Challenges Faced
 
-1. Building Guest Sessions using Devise. 
+1. Building Guest Sessions using Devise.
 2. User interface.
 3. My Plan was to add multiple lists on top of the sticky pads thats visible in the background.
