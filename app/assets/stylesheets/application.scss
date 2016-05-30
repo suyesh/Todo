@@ -112,6 +112,12 @@ form {
   transition: 0.2s linear;
 }
 
+.todo-li {
+    background-color:#fe9!important;
+    border: 3px solid #F44336;
+    border-width: 0px 3px 3px 3px;
+}
+
 .list ul li:nth-child(2n) { background: #f7f7f7; }
 
 .list ul li:hover a {

@@ -1,7 +1,7 @@
 <ul>
     <% @todos.each do |todo| %>
     <%= link_to todo_path(todo), method: :delete, remote: true do %>
-    <li>
+    <li class="todo-li">
         <div class="fa fa-check"></div>
     </a><%= todo.description %>
     <div class="pull-right">
