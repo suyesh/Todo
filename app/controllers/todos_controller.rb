@@ -1,17 +1,17 @@
 class TodosController < ApplicationController
-  before_action :authenticate_user!
+  helper_method :current_or_guest_user
   def index
-    @todos = current_or_guest_user.todos.all
-    @todo = current_or_guest_user.todos.new
+    @todos = guest_user.todos.all
+    @todo = guest_user.todos.new
   end
 
   def new
-    @todo = current_or_guest_user.todos.new
+    @todo = guest_user.todos.new
   end
 
   def create
-    @todo = current_or_guest_user.todos.create(todo_params)
-    @todos = Todo.all
+    @todo = guest_user.todos.create(todo_params)
+    @todos = guest_user.todos.all
     respond_to do |format|
       format.html {redirect_to root_path}
       format.js {
@@ -28,7 +28,7 @@ class TodosController < ApplicationController
 
   def edit
     @todo = Todo.find(params[:id])
-    @todos = Todo.all
+    @todos = guest_user.todos.all
     respond_to do |format|
            format.js
        end
@@ -36,7 +36,7 @@ class TodosController < ApplicationController
 
   def update
     @todo = Todo.find(params[:id])
-    @todos = Todo.all
+    @todos = guest_user.todos.all
     if @todo.incomplete?
       @todo.complete!
     else
@@ -50,9 +50,9 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    @todo = Todo.find(params[:id])
+    @todo = guest_user.todos.find(params[:id])
     @todo.destroy
-    @todos = current_or_guest_user.todos.all
+    @todos = guest_user.todos.all
    respond_to do |format|
      format.js {
         flash[:alert] = "Task Succesfully completed"
@@ -65,7 +65,4 @@ class TodosController < ApplicationController
     params.require(:todo).permit(:description, :priority)
   end
 
-  def authenticate_user!
-    @user = current_or_guest_user
-  end
 end
