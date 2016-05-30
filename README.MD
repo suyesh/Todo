@@ -28,3 +28,7 @@ A Cool Rails Application for To-Do Lists
 1. Building anonymous User creation and Guest Sessions using Devise. I wanted Users to not have to signup or signin to use the website. Its based on Cookie (Account for users are automatically created and they will be logged in until they clear browser cache) and can be extended to use User IP (Once users are created anonymously, their IP can be stored to retrieve data if they wish to switch the browser) but that will kind of be creepy.
 2. User interface.
 3. My plan is to add multiple lists on top of the sticky pads. Still a work in progress.
+
+## License
+
+See [WTFPL-LICENSE](http://www.wtfpl.net/txt/copying/)
