@@ -26,6 +26,13 @@ A Cool Rails Application for To-Do Lists
 
 I wanted users to not have to signup or signin to use the website. Accounts for users are automatically created and they will be logged in until they clear browser cache and can be extended to use user IP. Once users are created anonymously, their IP can be stored to retrieve data if they wish to switch the browser.
 
+The QRCODE Login is based on Session id. When you scan the QR CODE, the session guest user ID is passed in the params to the other device signing you in to the new device. 
+
+```ruby
+//   @user = User.find(params[:id])
+//    session[:guest_user_id] = @user.id
+```
+
 My plan is to add multiple lists on top of the sticky pads. Still a work in progress.
 
 ## Challenges Faced
