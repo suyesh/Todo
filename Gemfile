@@ -11,6 +11,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
+gem 'rqrcode_png'
 
 group :production do
     gem 'pg'

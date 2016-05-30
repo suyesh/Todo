@@ -7,9 +7,7 @@
             <div class="fa fa-plus"></div>
         </a>
     </h1>
-    <%= render "todos_tasks" %>
-    <%= image_tag @qr, class: "img-responsive center-block qr" %>
-    <p class="qr-message center-block"> <small>Scan to sync with other devices</small> </p>
+    <%= render "todos/todos_tasks" %>
 </div>
 
 <div class="modal modal-message modal-success fade" tabindex="-1" role="dialog" id="task-add">

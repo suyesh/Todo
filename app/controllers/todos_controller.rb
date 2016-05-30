@@ -1,8 +1,10 @@
+require 'rqrcode_png'
 class TodosController < ApplicationController
     helper_method :current_or_guest_user
     def index
         @todos = guest_user.todos.all
         @todo = guest_user.todos.new
+        @qr = RQRCode::QRCode.new("#{sessions_login_path}"+"?id=#{guest_user.id}").to_img.resize(100,100).to_data_url
     end
 
     def new
