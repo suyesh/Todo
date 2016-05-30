@@ -4,7 +4,7 @@ class TodosController < ApplicationController
     def index
         @todos = guest_user.todos.all
         @todo = guest_user.todos.new
-        @qr = RQRCode::QRCode.new("#{sessions_login_path}"+"?id=#{guest_user.id}").to_img.resize(100,100).to_data_url
+        @qr = RQRCode::QRCode.new("https://montodo.herokuapp.com"+ "#{sessions_login_path}"+"?id=#{guest_user.id}").to_img.resize(100,100).to_data_url
     end
 
     def new
