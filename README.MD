@@ -42,3 +42,5 @@ My plan is to add multiple lists on top of the sticky pads. Still a work in prog
 1. Building anonymous User creation and Guest Sessions using Devise. I wanted Users to not have to signup or signin to use the website. Its based on Cookie (Account for users are automatically created and they will be logged in until they clear browser cache) and can be extended to use User IP (Once users are created anonymously, their IP can be stored to retrieve data if they wish to switch the browser).
 2. User interface.
 3. My plan is to add multiple lists on top of the sticky pads. Still a work in progress.
+
+See [Live App](https://montodo.herokuapp.com)
