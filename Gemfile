@@ -13,21 +13,20 @@ gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
 
 group :production do
-  gem 'pg'
-  gem 'rails_12factor'
+    gem 'pg'
+    gem 'rails_12factor'
 end
 
 group :development, :test do
-  gem 'sqlite3'
-  gem 'pry'
-  gem 'figaro'
-  gem 'better_errors'
-  gem 'byebug'
+    gem 'sqlite3'
+    gem 'pry'
+    gem 'figaro'
+    gem 'better_errors'
+    gem 'byebug'
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
+    gem 'web-console', '~> 2.0'
 end
-
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
