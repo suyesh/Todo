@@ -2,14 +2,17 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-html{
+body {
 	background:url('http://simpledeveloper.com/wp-content/uploads/2013/06/sticky-note-using-html5-web-storage.jpg') no-repeat center center;
 	min-height:100%;
 	background-size:cover;
-	z-index: -1;
+
 }
 
-.logo { z-index: 1000; }
+.logo {
+max-width: 100%;
+height: auto;
+}
 
 body{
 	/* Workaround for some mobile browsers */

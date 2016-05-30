@@ -1,6 +1,4 @@
-<div class="logo">
-  <%= image_tag("MondoTODO.png", :alt => "kewl logo", class: "img-responsive center-block") %>
-</div>
+
 <div class="list animated tada">
     <h1>
         To-DO list<a class="add" href="#" data-toggle="modal" data-target="#task-add">
@@ -8,8 +6,8 @@
         </a>
     </h1>
     <%= render "todos_tasks" %>
-    <%= image_tag @qr, class: "img-responsive center-block qr" %>
-    <p class="qr-message center-block"> <small>Scan to sync with other devices</small> </p>
+    <button class="btn btn-primary center-block qr" data-toggle="modal" data-target="#QR"> Click here to sync Tasks with multiple devices</button>
+
 </div>
 
 <div class="modal modal-message modal-success fade" tabindex="-1" role="dialog" id="task-add">
@@ -28,6 +26,26 @@
                 <%= f.button :submit, "Add Task" , class: "btn btn-primary"%>
             </div>
             <%end%>
+        </div>
+        <!-- /.modal-content -->
+
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<div class="modal modal-message modal-success fade" tabindex="-1" role="dialog" id="QR">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Scan this Qr to Sync your tasks with multiple devices</h4>
+            </div>
+            <div class="modal-body">
+              <%= image_tag @qr %>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
         </div>
         <!-- /.modal-content -->
 
