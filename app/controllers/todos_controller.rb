@@ -1,15 +1,15 @@
 class TodosController < ApplicationController
   def index
-    @todos = Todo.all
-    @todo = Todo.new
+    @todos = current_or_guest_user.todos.all
+    @todo = current_or_guest_user.todos.new
   end
 
   def new
-    @todo = Todo.new
+    @todo = current_or_guest_user.todos.new
   end
 
   def create
-    @todo = Todo.create(todo_params)
+    @todo = current_or_guest_user.todos.create(todo_params)
     @todos = Todo.all
     respond_to do |format|
       format.html {redirect_to root_path}
@@ -51,7 +51,7 @@ class TodosController < ApplicationController
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy
-    @todos = Todo.all
+    @todos = current_or_guest_user.todos.all
    respond_to do |format|
      format.js {
         flash[:alert] = "Task Succesfully completed"
