@@ -22,6 +22,11 @@ A Cool Rails Application for To-Do Lists
 6. Elegant color-coded priority badge on Tasks for identification.
 7. Full use of Ajax. There is no reloading of browser.
 
+#How it works
+
+I wanted users to not have to signup or signin to use the website. Accounts for users are automatically created and they will be logged in until they clear browser cache and can be extended to use user IP. Once users are created anonymously, their IP can be stored to retrieve data if they wish to switch the browser.
+
+My plan is to add multiple lists on top of the sticky pads. Still a work in progress.
 
 ## Challenges Faced
 
