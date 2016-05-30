@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Todo by suyesh</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/main.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+
+      <header>
+        <h1>Todo</h1>
+        <p>No sign ups! No sign ins! Dead Simple!</p>
+      </header>
+
+      <div id="banner">
+        <span id="logo"></span>
+
+        <a href="https://github.com/suyesh/Todo" class="button fork"><strong>View On GitHub</strong></a>
+        <div class="downloads">
+          <span>Downloads:</span>
+          <ul>
+            <li><a href="https://github.com/suyesh/Todo/zipball/master" class="button">ZIP</a></li>
+            <li><a href="https://github.com/suyesh/Todo/tarball/master" class="button">TAR</a></li>
+          </ul>
+        </div>
+      </div><!-- end banner -->
+
+    <div class="wrapper">
+      <nav>
+        <ul></ul>
+      </nav>
+      <section>
+        <h1>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h1>
+
+<p>A Rails Application for To-Do Lists  </p>
+
+<p>Built with Rails.</p>
+
+<ol>
+<li>Devise for handling the browser sessions for users.
+(There is no need for Signup/Signin/Login/Logout).</li>
+<li>Bootstrap-sass for styling.</li>
+<li>Postgres to persist to-do list data between sessions for all users.</li>
+<li>Pry for debugging.</li>
+<li>QRCODE generator for syncing sessions with other devices.</li>
+</ol>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+
+<ol>
+<li>No Signup/Signin necessary. User's tasks will be anonymously saved in the Database.
+(Users can just scan the QR-Code to sync their Tasks with multiple devices)</li>
+<li>Cool UI but could be cooler.
+(I'm more back end than front end)</li>
+<li>Task saved in cloud. Even though there is no signup or signin, your tasks are yours.</li>
+<li>Mark tasks as complete. Tasks will be deleted from Database as completed.</li>
+<li>Set Priority on tasks to easily see which tasks are important.</li>
+<li>Elegant color-coded priority badge on Tasks for identification.</li>
+<li>Full use of Ajax. There is no reloading of browser.</li>
+</ol>
+
+<h2>
+<a id="challenges-faced" class="anchor" href="#challenges-faced" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Challenges Faced</h2>
+
+<ol>
+<li>Building anonymous User creation and Guest Sessions using Devise. I wanted Users to not have to signup or signin to use the website. Its based on Cookie (Account for users are automatically created and they will be logged in until they clear browser cache) and can be extended to use User IP (Once users are created anonymously, their IP can be stored to retrieve data if they wish to switch the browser) but that will kind of be creepy.</li>
+<li>User interface.</li>
+<li>My plan is to add multiple lists on top of the sticky pads. Still a work in progress.</li>
+</ol>
+      </section>
+      <footer>
+        <p>Project maintained by <a href="https://github.com/suyesh">suyesh</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
