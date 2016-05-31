@@ -3,35 +3,32 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+
     <title>Todo by suyesh</title>
   </head>
 
   <body>
-    <div id="container">
-      <div class="inner">
 
-        <header>
-          <h1>Todo</h1>
-          <h2>No sign ups! No sign ins! Dead Simple!</h2>
-        </header>
+    <header>
+      <div class="container">
+        <h1>Todo</h1>
+        <h2>No sign ups! No sign ins! Dead Simple!</h2>
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/suyesh/Todo/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/suyesh/Todo/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
-          <a href="https://github.com/suyesh/Todo" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        <section id="downloads">
+          <a href="https://github.com/suyesh/Todo/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/suyesh/Todo/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/suyesh/Todo" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
         </section>
+      </div>
+    </header>
 
-        <hr>
-
-        <section id="main_content">
-          <h1>
+    <div class="container">
+      <section id="main_content">
+        <h1>
 <a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h1>
 
 <p>A Cool Rails Application for To-Do Lists  </p>
@@ -70,12 +67,29 @@
 
 <p>I wanted users to not have to signup or signin to use the website. Accounts for users are automatically created and they will be logged in until they clear browser cache and can be extended to use user IP. Once users are created anonymously, their IP can be stored to retrieve data if they wish to switch the browser.</p>
 
-<p>The QRCODE Login is based on Session id. When you scan the QR CODE, the session guest user ID is passed in the params to the other device signing you in to the new device. </p>
+<p>The QRCODE Login is based on Session id. When you scan the QR CODE, the session guest user ID is passed in the params to the other device signing you in to the new device.</p>
 
-<div class="highlight highlight-source-ruby"><pre><span class="pl-sr"><span class="pl-pds">//</span></span>   <span class="pl-smi">@user</span> <span class="pl-k">=</span> <span class="pl-c1">User</span>.find(params[<span class="pl-c1">:id</span>])
-<span class="pl-sr"><span class="pl-pds">//</span></span>    session[<span class="pl-c1">:guest_user_id</span>] <span class="pl-k">=</span> <span class="pl-smi">@user</span>.id</pre></div>
+<div class="highlight highlight-source-ruby"><pre><span class="pl-sr"><span class="pl-pds">//</span></span> <span class="pl-k">def</span> <span class="pl-en">create_guest_user</span>
+      password <span class="pl-k">=</span> <span class="pl-c1">SecureRandom</span>.hex(<span class="pl-c1">6</span>)
+      u <span class="pl-k">=</span> <span class="pl-c1">User</span>.create(<span class="pl-c1">email:</span> <span class="pl-s"><span class="pl-pds">"</span>guest_<span class="pl-pse">#{</span><span class="pl-s1"><span class="pl-c1">Time</span>.now.to_i</span><span class="pl-pse"><span class="pl-s1">}</span></span><span class="pl-pse">#{</span><span class="pl-s1">rand(<span class="pl-c1">100</span>)</span><span class="pl-pse"><span class="pl-s1">}</span></span>@suyesh.com<span class="pl-pds">"</span></span>, <span class="pl-c1">password:</span> password, <span class="pl-c1">password_confirmation:</span> password)
+      u.save!(<span class="pl-c1">validate:</span> <span class="pl-c1">false</span>)
+      session[<span class="pl-c1">:guest_user_id</span>] <span class="pl-k">=</span> u.id
+      <span class="pl-c">#Sample Task for the guest user</span>
+      u.todos.create(<span class="pl-c1">description:</span> <span class="pl-s"><span class="pl-pds">"</span>Get milk and bread<span class="pl-pds">"</span></span>, <span class="pl-c1">priority:</span> <span class="pl-s"><span class="pl-pds">"</span>High<span class="pl-pds">"</span></span> )
+      u
+    <span class="pl-k">end</span></pre></div>
 
-<p>My plan is to add multiple lists on top of the sticky pads. Still a work in progress.</p>
+<p>The above code creates and returns a guest user. Then in the Index path of the todos list user's QR code for their session is created.</p>
+
+<div class="highlight highlight-source-ruby"><pre>  <span class="pl-smi">@qr</span> <span class="pl-k">=</span> <span class="pl-c1">RQRCode</span>::<span class="pl-c1">QRCode</span>.<span class="pl-k">new</span>(<span class="pl-s"><span class="pl-pds">"</span>https://montodo.herokuapp.com<span class="pl-pds">"</span></span><span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">"</span><span class="pl-pse">#{</span><span class="pl-s1">sessions_login_path</span><span class="pl-pse"><span class="pl-s1">}</span></span><span class="pl-pds">"</span></span><span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">"</span>?id=<span class="pl-pse">#{</span><span class="pl-s1">guest_user.id</span><span class="pl-pse"><span class="pl-s1">}</span></span><span class="pl-pds">"</span></span>).to_img.resize(<span class="pl-c1">100</span>,<span class="pl-c1">100</span>).to_data_url</pre></div>
+
+<p>The url from the QRcode gets the login of the user and sets the guest_user_id on the new device.</p>
+
+<div class="highlight highlight-source-ruby"><pre>   <span class="pl-k">def</span> <span class="pl-en">login</span>
+     <span class="pl-smi">@user</span> <span class="pl-k">=</span> <span class="pl-c1">User</span>.find(params[<span class="pl-c1">:id</span>])
+     session[<span class="pl-c1">:guest_user_id</span>] <span class="pl-k">=</span> <span class="pl-smi">@user</span>.id
+    redirect_to root_path
+   <span class="pl-k">end</span></pre></div>
 
 <h2>
 <a id="challenges-faced" class="anchor" href="#challenges-faced" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Challenges Faced</h2>
@@ -87,15 +101,9 @@
 </ol>
 
 <p>See <a href="https://montodo.herokuapp.com">Live App</a></p>
-        </section>
-
-        <footer>
-          Todo is maintained by <a href="https://github.com/suyesh">suyesh</a><br>
-          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
-        </footer>
-
-        
-      </div>
+      </section>
     </div>
+
+    
   </body>
 </html>
