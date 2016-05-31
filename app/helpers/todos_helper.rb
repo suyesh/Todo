@@ -1,5 +1,5 @@
 module TodosHelper
   def priorities
-    %w(Wife High Medium Low )
+    %w(High Medium Low )
   end
 end
