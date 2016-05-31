@@ -31,8 +31,8 @@ class ApplicationController < ActionController::Base
         u = User.create(email: "guest_#{Time.now.to_i}#{rand(100)}@suyesh.com", password: password, password_confirmation: password)
         u.save!(validate: false)
         session[:guest_user_id] = u.id
-        #Sample Task for the guest user
-        u.todos.create(description: "Hover to delete this sample task.", priority: "High" )
+        # Sample Task for the guest user
+        u.todos.create(description: 'Hover to delete this sample task.', priority: 'High')
         u
     end
 end
