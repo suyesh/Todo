@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
         u.save!(validate: false)
         session[:guest_user_id] = u.id
         #Sample Task for the guest user
-        u.todos.create(description: "Here is a sample task. Hover to mark it completed.", priority: "High" )
+        u.todos.create(description: "Hover to delete this sample task.", priority: "High" )
         u
     end
 end

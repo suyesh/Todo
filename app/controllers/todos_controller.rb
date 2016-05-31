@@ -18,10 +18,9 @@ class TodosController < ApplicationController
             format.html { redirect_to root_path }
             format.js do
                 if @todo.save
-                    flash[:notice] = 'New Task succesfully added.'
-                    render 'success'
+                   render 'success'
                 else
-                    flash.now[:alert] = 'Oops something went wrong. Please retry'
+                    flash.now[:alert] = 'Task length cannot exceed 25 characters'
                     render 'new'
                end
             end
@@ -58,7 +57,7 @@ class TodosController < ApplicationController
         @todos = guest_user.todos.all
         respond_to do |format|
             format.js do
-                flash[:alert] = 'Task Succesfully completed'
+                flash.now[:alert] = 'Task Succesfully completed'
                 render 'del_success'
             end
         end
