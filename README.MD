@@ -33,9 +33,11 @@ The QRCODE Login is based on Session id. When you scan the QR CODE, the session 
 ```ruby
 // def create_guest_user
       password = SecureRandom.hex(6)
-      u = User.create(email: "guest_#{Time.now.to_i}#{rand(100)}@example.com", password: password, password_confirmation: password)
+      u = User.create(email: "guest_#{Time.now.to_i}#{rand(100)}@suyesh.com", password: password, password_confirmation: password)
       u.save!(validate: false)
       session[:guest_user_id] = u.id
+      #Sample Task for the guest user
+      u.todos.create(description: "Get milk and bread", priority: "High" )
       u
     end
 ```

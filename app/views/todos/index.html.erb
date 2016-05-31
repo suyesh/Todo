@@ -18,8 +18,8 @@
             </div>
             <div class="modal-body">
                 <%= simple_form_for @todo, remote: true do |f| %>
-                <%= f.input :description, placeholder: "'Get Milk'"%>
-                <%= f.input :priority, :label => "Priority", :collection => priorities, :selected => "High"%>
+                <%= f.input :description, :label => "Task", placeholder: "Get Milk and Bread."%>
+                <%= f.input :priority, :label => "Priority level", :collection => priorities, :selected => "High"%>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

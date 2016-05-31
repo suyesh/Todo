@@ -7,15 +7,19 @@
     <div class="pull-right">
         <% if todo.priority == "High" %>
         <span class="label label-danger">
-            <i class="glyphicon glyphicon-tasks"></i>
+            <i class="fa fa-tasks"></i>
         </span>
         <%elsif todo.priority == "Medium"%>
         <span class="label label-primary">
-            <i class="glyphicon glyphicon-tasks"></i>
+            <i class="fa fa-tasks"></i>
+        </span>
+        <%elsif todo.priority == "Wife"%>
+        <span class="label label-danger">
+            <i class="fa fa-female"></i>
         </span>
         <%else%>
         <span class="label label-warning">
-            <i class="glyphicon glyphicon-tasks"></i>
+            <i class="fa fa-tasks"></i>
         </span>
         <%end%>
     </div>
