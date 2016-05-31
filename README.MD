@@ -53,8 +53,7 @@ The url from the QRcode gets the login of the user and sets the guest_user_id on
     redirect_to root_path
    end
 ```
-Then when the user is logged in
-My plan is to add multiple lists on top of the sticky pads. Still a work in progress.
+
 
 ## Challenges Faced
 
