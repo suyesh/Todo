@@ -1,14 +1,16 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+html {
+  zoom: 125%;
+}
 
 
 body {
 	background:url('https://s3.amazonaws.com/cdn.shared/todo/sticky-note-bg.jpg') fixed;
 	min-height:100%;
 	background-size:cover;
-  
+
 }
 
 .logo {
