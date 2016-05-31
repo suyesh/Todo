@@ -28,13 +28,32 @@ A Cool Rails Application for To-Do Lists
 
 I wanted users to not have to signup or signin to use the website. Accounts for users are automatically created and they will be logged in until they clear browser cache and can be extended to use user IP. Once users are created anonymously, their IP can be stored to retrieve data if they wish to switch the browser.
 
-The QRCODE Login is based on Session id. When you scan the QR CODE, the session guest user ID is passed in the params to the other device signing you in to the new device. 
+The QRCODE Login is based on Session id. When you scan the QR CODE, the session guest user ID is passed in the params to the other device signing you in to the new device.
 
 ```ruby
-//   @user = User.find(params[:id])
-//    session[:guest_user_id] = @user.id
+// def create_guest_user
+      password = SecureRandom.hex(6)
+      u = User.create(email: "guest_#{Time.now.to_i}#{rand(100)}@example.com", password: password, password_confirmation: password)
+      u.save!(validate: false)
+      session[:guest_user_id] = u.id
+      u
+    end
 ```
+The above code creates and returns a guest user. Then in the Index path of the todos list user's QR code for their session is created.
 
+```ruby
+  @qr = RQRCode::QRCode.new("https://montodo.herokuapp.com"+ "#{sessions_login_path}"+"?id=#{guest_user.id}").to_img.resize(100,100).to_data_url
+```
+The url from the QRcode gets the login of the user and sets the guest_user_id on the new device.
+
+```ruby
+   def login
+     @user = User.find(params[:id])
+     session[:guest_user_id] = @user.id
+    redirect_to root_path
+   end
+```
+Then when the user is logged in
 My plan is to add multiple lists on top of the sticky pads. Still a work in progress.
 
 ## Challenges Faced
